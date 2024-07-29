@@ -2,12 +2,12 @@
 
 namespace Config;
 
-use CodeIgniter\Database\Config;
+use CodeIgniter\Database\Config as BaseConfig;
 
 /**
  * Database Configuration
  */
-class Database extends Config
+class Database extends BaseConfig
 {
     /**
      * The directory that holds the Migrations and Seeds directories.
@@ -26,10 +26,10 @@ class Database extends Config
      */
     public array $default = [
         'DSN'          => '',
-        'hostname'     => 'localhost',
-        'username'     => '',
-        'password'     => '',
-        'database'     => '',
+        'hostname'     => 'my_mysql',
+        'username'     => 'root',
+        'password'     => 'root',
+        'database'     => 'Agenda',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
         'pConnect'     => false,
