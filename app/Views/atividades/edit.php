@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h2>Editar Atividade</h2>
-        <form action="<?= site_url('atividades/edit/' . $atividade['id']) ?>" method="post">
+        <form action="<?= site_url('atividades/' . $atividade['id']) ?>" method="put">
             <div class="form-group">
                 <label for="nome">Nome</label>
                 <input type="text" name="nome" class="form-control" value="<?= $atividade['nome'] ?>" required>

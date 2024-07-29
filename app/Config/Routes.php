@@ -16,5 +16,5 @@ $routes->get('atividades', 'Atividades::index', ['filter' => 'auth']);
 $routes->get('atividades/create', 'Atividades::create', ['filter' => 'auth']);
 $routes->post('atividades/create', 'Atividades::create', ['filter' => 'auth']);
 $routes->get('atividades/edit/(:num)', 'Atividades::edit/$1', ['filter' => 'auth']);
-$routes->post('atividades/edit/(:num)', 'Atividades::edit/$1', ['filter' => 'auth']);
-$routes->get('atividades/delete/(:num)', 'Atividades::delete/$1', ['filter' => 'auth']);
+$routes->put('atividades/(:num)', 'Atividades::edit/$1', ['filter' => 'auth']);
+$routes->delete('atividades/(:num)', 'Atividades::delete/$1', ['filter' => 'auth']);

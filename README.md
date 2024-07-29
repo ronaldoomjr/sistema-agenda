@@ -1,42 +1,51 @@
-# DESAFIO SISTEMA DE AGENDA ELETRÔNICA: Usuários e Atividades
+# Sistema de Agenda Eletrônica
 
-## O usuário deverá conter:
-1. id: INT, chave primária, auto-incremento
-2. login: VARCHAR(255), único, não nulo
-3. senha: VARCHAR(255), não nulo
+## Início Rápido
 
-Cada usuário poderá criar N atividades e só enxergará suas próprias atividades.
+Este projeto é uma aplicação de agenda eletrônica que permite o gerenciamento de usuários e atividades. A aplicação é construída usando CodeIgniter (PHP) e MySQL como banco de dados.
 
-## A atividade deverá conter:
-1. id: INT, chave primária, auto-incremento
-- usuario_id: INT, chave estrangeira referenciando id em Usuários
-2. nome: VARCHAR(255), não nulo
-3. descrição: TEXT, opcional
-4. data e hora de início: DATETIME, não nulo
-5. data e hora de término: DATETIME, não nulo
-6. status (pendente, concluída, cancelada): ENUM('pendente', 'concluída', 'cancelada'), padrão 'pendente'
+Este README fornece um guia passo a passo para configurar e executar o contêiner MySQL com Docker, além de integrar o banco de dados com a aplicação. Inclui instruções para criar variáveis de ambiente, iniciar o contêiner, acessar o banco de dados, e iniciar a aplicação.
 
-Deverá ser possível alterar o status da atividade, após a criação.
+### Pré-requisitos
 
-## Funcionalidades:
-1. Tela para cadastro e login de usuário.
-- Cadastro: Formulário para criar um novo usuário com login e senha.
-- Login: Formulário para autenticar o usuário com login e senha.
-2. CRUD (Create, Read, Update e Delete) de atividades.
-- Create: Formulário para criar uma nova atividade.
-- Read: Exibição das atividades em um calendário e em uma lista.
-- Update: Formulário para editar detalhes da atividade, incluindo o status.
-- Delete: Opção para excluir uma atividade.
-3. Exibição de atividades em um calendário (é permitido o uso de bibliotecas).
-- Utilização de bibliotecas de calendário como *FullCalendar* para exibir as atividades.
+- [Docker](https://www.docker.com/)
+- [MySQL_Image](https://hub.docker.com/_/mysql)
 
-## Tecnologias recomendadas:
+### Configuração e Início do Banco de Dados com Docker
 
-1. PHP (Codeigniter ou CakePHP)
-2. Jquery
-3. Bootstrap
-4. MySQL
+1. **Clone o Repositório**
 
-- Backend: PHP com Codeigniter ou CakePHP
-- Frontend: JQuery para manipulação do DOM e chamadas AJAX, Bootstrap para o design responsivo.
-- Banco de Dados: MySQL para armazenamento de dados.
+   ```bash
+   git clone https://github.com/ronaldoomjr/sistema-agenda.git
+   cd sistema-agenda
+
+2. **Crie um Arquivo .env**
+
+Crie um arquivo .env na raiz do projeto para armazenar as variáveis de ambiente. Aqui está um exemplo de como o arquivo .env deve parecer:
+
+DB_HOST=db
+DB_NAME=sistema_agenda
+DB_USER=root
+DB_PASS=sua_senha_segura
+DB_PORT=3306
+
+3. **Baixar a Imagem Oficial do MySQL no DockerHub e seguir as instruções de uso da Imagem**
+
+   docker pull mysql
+
+Iniciar uma instância do MySQL:
+
+   docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag
+
+... onde some-mysql é o nome que você quer atribuir ao seu contêiner, my-secret-pwé a senha a ser definida para o usuário root do MySQL e tagé a tag especificando a versão do MySQL que você quer.
+
+4. **Acesso ao shell do contêiner**
+
+O docker execcomando permite que você execute comandos dentro de um contêiner Docker. A seguinte linha de comando lhe dará um shell bash dentro do seu mysqlcontêiner:
+
+   docker exec -it some-mysql bash
+
+
+
+
+
