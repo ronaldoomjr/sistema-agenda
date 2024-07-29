@@ -18,6 +18,7 @@ Este README fornece um guia passo a passo para configurar e executar o contêine
    ```bash
    git clone https://github.com/ronaldoomjr/sistema-agenda.git
    cd sistema-agenda
+   Para iniciar a aplicação 
 
 2. **Crie um Arquivo .env**
 
@@ -43,9 +44,19 @@ Iniciar uma instância do MySQL:
 
 O docker execcomando permite que você execute comandos dentro de um contêiner Docker. A seguinte linha de comando lhe dará um shell bash dentro do seu mysqlcontêiner:
 
-   docker exec -it some-mysql bash
+   docker exec -it my_mysql mysql -u root -p
 
+5. **Configurando a Aplicação**
 
+Certifique-se de que as configurações do banco de dados em sua aplicação (app/Config/Database.php para CodeIgniter) estejam corretas e correspondam às variáveis de ambiente definidas.
+
+6. **Executando a Aplicação**
+
+Inicie o servidor de desenvolvimento do CodeIgniter:
+
+  php spark serve
+
+Acesse a aplicação em http://localhost:8080.
 
 
 
