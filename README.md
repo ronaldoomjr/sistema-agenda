@@ -1,20 +1,20 @@
 # DESAFIO SISTEMA DE AGENDA ELETRÔNICA: Usuários e Atividades
 
 ## O usuário deverá conter:
-1. id
-2. login
-3. senha
+1. id: INT, chave primária, auto-incremento
+2. login: VARCHAR(255), único, não nulo
+3. senha: VARCHAR(255), não nulo
 
 Cada usuário poderá criar N atividades e só enxergará suas próprias atividades.
 
 ## A atividade deverá conter:
-1. id
-- usuario_id
-2. nome
-3. descrição
-4. data e hora de início
-5. data e hora de término
-6. status (pendente, concluída, cancelada)
+1. id: INT, chave primária, auto-incremento
+- usuario_id: INT, chave estrangeira referenciando id em Usuários
+2. nome: VARCHAR(255), não nulo
+3. descrição: TEXT, opcional
+4. data e hora de início: DATETIME, não nulo
+5. data e hora de término: DATETIME, não nulo
+6. status (pendente, concluída, cancelada): ENUM('pendente', 'concluída', 'cancelada'), padrão 'pendente'
 
 Deverá ser possível alterar o status da atividade, após a criação.
 
